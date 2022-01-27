@@ -16,8 +16,8 @@
 
 
  > * What will be the input/output of your project? What are the features that the project provides?
- >   * THe input of our project would be task names, task descriptions, category labels, dates and times. Task names and descriptions will be anything the user enters, and user can also add category labels.
- >   * THe output of our project would  be a list ordered by date and priority displayed for the user to review.
+ >   * The input of our project would be task names, task descriptions, category labels, dates and times. Task names and descriptions will be anything the user enters, and user can also add category labels.
+ >   * The output of our project would  be a list ordered by date and priority displayed for the user to review.
 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to:
