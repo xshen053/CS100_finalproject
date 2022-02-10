@@ -22,25 +22,11 @@
 
 
 ## Class Diagram
-![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/raw/master/originalUML.png)
+![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/raw/master/uml.PNG)
 
 ## Diagram description
 
-1. User function: 
-   
-   set up an account for task board. User can login.
-   
-2. Admin function: 
-   
-   Be able to remove users and passwords.
-   
-3. List function: 
-   
-   Create a list containing users and their tasks.
-
-4. Task function: 
-
-   Be able to create, edit and delete tasks. 
+By far, we use composite pattern to implment our task. This is implemented in the construction of the Project and the Tasks class being subclasses to the Abstract Class Component. 
    
 
 
