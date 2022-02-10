@@ -33,6 +33,8 @@
 
 ## Class Diagram
 ![avatar](file:///C:/Users/cuiyo/Desktop/QQ%E6%88%AA%E5%9B%BE20220209193432.png)
+
+## Diagram description
  
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with a reader (using Calendly). Your entire team must be present. This meeting will occur on week 8 but NOT during lab time.
