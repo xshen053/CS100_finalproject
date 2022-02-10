@@ -25,6 +25,7 @@
 ![avatar](file:///C:/Users/cuiyo/Desktop/QQ%E6%88%AA%E5%9B%BE20220209193432.png)
 
 ## Diagram description
+
 ###1. User function: 
    
    set up an account for task board. User can login.
