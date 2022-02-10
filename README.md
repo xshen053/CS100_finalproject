@@ -19,35 +19,25 @@
  >   * The input of our project would be task names, task descriptions, category labels, dates and times. Task names and descriptions will be anything the user enters, and user can also add category labels.
  >   * The output of our project would  be a list ordered by date and priority displayed for the user to review.
 
- > ## Phase II
- > In addition to completing the "Class Diagram" section below, you will need to:
- > * Create an "Epic" (note) for each feature and each design pattern and assign them to the appropriate team member. Place these in the `Backlog` column
- > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
- >   * Create smaller actionable development tasks as issues and assign them to team members. Place these in the `TODO` column.
- >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
- > * Schedule two check-ins using Calendly. You need to pick both time slots during your lab on week 8. Your entire team must be present for both check-ins.
- >   * The first check-in needs to be scheduled with your lab TA. During that meeting, you will discuss your project design/class diagram from phase II.
- >   * The second check-in should be scheduled with a reader. During that meeting you will discuss:
- >     * The tasks you are planning for the first sprint
- >     * How work will be divided between the team members
+
 
 ## Class Diagram
 ![avatar](file:///C:/Users/cuiyo/Desktop/QQ%E6%88%AA%E5%9B%BE20220209193432.png)
 
 ## Diagram description
-1. User function: 
+###1. User function: 
    
    set up an account for task board. User can login.
    
-2. Admin function: 
+###2. Admin function: 
    
    Be able to remove users and passwords.
    
-3. List function: 
+###3. List function: 
    
    Create a list containing users and their tasks.
 
-4. Task function: 
+###4. Task function: 
 
    Be able to create, edit and delete tasks. 
    
