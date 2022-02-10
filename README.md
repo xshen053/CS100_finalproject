@@ -26,19 +26,19 @@
 
 ## Diagram description
 
-###1. User function: 
+1. User function: 
    
    set up an account for task board. User can login.
    
-###2. Admin function: 
+2. Admin function: 
    
    Be able to remove users and passwords.
    
-###3. List function: 
+3. List function: 
    
    Create a list containing users and their tasks.
 
-###4. Task function: 
+4. Task function: 
 
    Be able to create, edit and delete tasks. 
    
