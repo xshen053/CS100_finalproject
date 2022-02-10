@@ -32,7 +32,7 @@
  >     * How work will be divided between the team members
 
 ## Class Diagram
-![avatar](/home/picture/1.png)
+![avatar](/home/picture/100.png)
  
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with a reader (using Calendly). Your entire team must be present. This meeting will occur on week 8 but NOT during lab time.
