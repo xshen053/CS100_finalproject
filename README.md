@@ -18,9 +18,9 @@
     * [Valgrind](https://valgrind.org/) - We will use the Valgrind framework to construct dynamic analysis tools to help us with memory debugging and detecting memory leaks.
 
 
- > * What will be the input/output of your project? What are the features that the project provides?
- >   * The input of our project would be task names, task descriptions, category labels, dates and times. Task names and descriptions will be anything the user enters, and user can also add category labels.
- >   * The output of our project would  be a list ordered by date and priority displayed for the user to review.
+
+ * The input of our project would be task names, task descriptions, category labels, dates and times. Task names and descriptions will be anything the user enters, and user can also add category labels.
+ * The output of our project would  be a list ordered by date and priority displayed for the user to review.
 
 
 
