@@ -22,7 +22,7 @@
 
 
 ## Class Diagram
-![avatar](file:///C:/Users/cuiyo/Desktop/QQ%E6%88%AA%E5%9B%BE20220209193432.png)
+![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/raw/master/originalUML.png)
 
 ## Diagram description
 
