@@ -46,7 +46,8 @@ We have a base class which is an abstract class, a Task class(leaf) and a SubLis
  With design pattern, we do not need to worry about hierarchy of our class, we just need to consider task class as leaf and consider sublists classes as composite.
 
  updated class diagram
-
+## Class Diagram
+![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/raw/master/composite%20pattern%20part.PNG)
  
 
 
