@@ -33,5 +33,23 @@ By far, we use composite pattern to implment our task. This is implemented in th
    
 
 
+ >   * What design pattern(s) did you use? For each pattern you must explain in 4-5 sentences:
+ >     * Why did you pick this pattern? And what feature did you implement with it?
+
+ We need composite design pattern to help us implement hierarchy structure of our task scheduler.
+We have a base class which is an abstract class, a Task class(leaf) and a SubList(Composite class). With the SubList class, we are able to create a hierarchy of subtasks and sub-lists. Besides, the Task class(leaf) covers a task that does not have other tasks embedded in it. The SubList class has an aggregation relationship with the tasks class because it has a vector of Tasks objects and it can also have vector of sub-lists. By using the composite pattern, user can interact with interfaces in an easier way.
+
+
+
+ >     * How did the design pattern help you write better code?
+
+ With design pattern, we do not need to worry about hierarchy of our class, we just need to consider task class as leaf and consider sublists classes as composite.
+
+ updated class diagram
+
+ 
+
+
+
  
 
