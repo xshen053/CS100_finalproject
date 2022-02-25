@@ -5,26 +5,42 @@
  
 using namespace std;
 
-void taskList::writeTask(){
-	cout << "Users List" << endl; //need to change to users name
-    for(unsigned i = 0; i < tList.size(); i++){
-        cout << i+1 << ". " << tList.at(i)->getName() << endl;
+taskList::taskList(string listName, string listD){
+	lName = listName;
+	listDesc = listD;
+}
+
+void taskList::display(){
+	cout << lName << " " << listDesc << endl;
+    for(int i = 0; i < tList.size(); i++){
+    	tList.at(i)->display();
     }
 }
-void taskList::addTask(string t){
-    task* i = new task();
-    i->setName(t);
-    tList.push_back(i);
+
+void taskList::addTask(taskBase* t){
+    tList.push_back(t);
 }
 
 int taskList::listSize(){
 	return tList.size();
 }
 
+task::task(string name, string category, int priority){
+	taskName = name;
+	taskC = category;
+	taskP = priority;
+}
+
 void task::setName(string name){
 	taskName = name;
 }
+
  string task::getName(){
  	return taskName;
  }
-
+ 
+ void task::display(){
+ 	cout << "Task: " << taskName << endl;
+ 	cout << "Category: " << taskC << endl;
+ 	cout << "Priority: " << taskP << endl << endl;
+ }

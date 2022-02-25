@@ -7,22 +7,39 @@
 
 using namespace std;
 
-class task{
+class taskBase{
+	
+	public:
+		virtual void display() = 0;
+		
+};	
+
+class task: public taskBase{
     private:
     	string taskName;
+    	string taskC; // category
+    	int taskP; // priority
+    	
+    	
     public:
+    	task(string name, string category, int priority);
     	void setName(string);
     	string getName();
+    	void display();
 };
 
-class taskList{
+class taskList: public taskBase{
+	private:
+    	vector<taskBase*>tList;
+    	string lName;
+    	string listDesc;
+    	
     public:
-    	void writeTask(); // output list of tasks
-    	void addTask(string t);
-	int listSize();
+    	taskList(string listName, string listD); // list name and description.
+    	void display(); // output list of tasks
+    	void addTask(taskBase* t);
+    	int listSize();
     
-    private:
-    	vector<task*>tList;
 };
 
 #endif
