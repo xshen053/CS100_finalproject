@@ -50,7 +50,7 @@ We will also use the strategy pattern to enable program choose different classes
 
  updated class diagram
 ## Class Diagram
-![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/raw/master/composite%20pattern%20part.PNG))
+![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/raw/master/composite%20pattern%20part.PNG)
 
 
 
