@@ -25,7 +25,7 @@
 
 
 ## Class Diagram
-![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/raw/master/originalUML.png)
+![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/raw/master/UML/originalUML.png)
 
 ## Diagram description
 
@@ -50,7 +50,7 @@ We will also use the strategy pattern to enable program choose different classes
 
  updated class diagram
 ## Class Diagram
-![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/raw/master/Taskscheduler.png)
+![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/raw/master/Taskscheduler%20.png)
 
 
 
