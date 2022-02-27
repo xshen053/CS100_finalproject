@@ -63,7 +63,7 @@ public:
 	void setPriority(){
 		cout << "Type in the new task priority (high, medium, or low) followed by ENTER" << endl;
 		string taskPriority;
-		cin >> priority;
+		cin >> taskPriority;
 	    priority = taskPriority;
 	}
 	

@@ -5,6 +5,7 @@
 #include <vector>
 #include "SubList.hpp"
 #include "task.hpp"
+#include "select.hpp"
 using namespace std;
 
 
@@ -18,10 +19,16 @@ private:
     vector<Base*> spreadsheet;    //store all task and sublist regardless of hierarchy 
     int currentElement;           //current Task/Sublist order in spreadsheet
     string Name;                  //current Task/Sublist name
+	Select *displayStrategy;      //different method to display tasks and sublists
 public:
 	
 	Menu(vector<Base*> tasklist){
 	    base = tasklist;
+	}
+	
+	//Select
+	void set(Select *s){
+		displayStrategy = s;
 	}
 	
     Base* initializeTask(){
@@ -255,9 +262,10 @@ public:
 	//	}
 	//	
 	//	//Display by priority
-	//    if (input == 'h' || input == 'H'){
-	//    	
-	//	}
+	    if (input == 'h' || input == 'H'){
+            set(new Select_ByPriority(base));
+            print();
+		}
 	//	
 	//	//Display by duedate
 	//    if (input == 'i' || input == 'I'){
@@ -300,7 +308,7 @@ public:
 		while (input != 'a' && input != 'A' && input != 'b' && input != 'B' && input != 'c' &&
 	           input != 'C' && input != 'd' && input != 'D' && input != 'e' && input != 'E' &&
 	           input != 'f' && input != 'F' && input != 'g' && input != 'G' && input != 'h' &&
-	           input != 'H' && input != 'i' && input != 'I' && input != 'q' && input != 'Q') {
+	           input != 'H' && input != 'q' && input != 'Q') {
 	        cout << "Error: Unknown input. Please Select a valid option: ";
 	        cin >> input;
 	        cout << endl;
@@ -376,7 +384,7 @@ public:
 		while (input != 'a' && input != 'A' && input != 'b' && input != 'B' && input != 'c' &&
 	           input != 'C' && input != 'd' && input != 'D' && input != 'e' && input != 'E' &&
 	           input != 'f' && input != 'F' && input != 'g' && input != 'G' && input != 'h' &&
-	           input != 'H' && input != 'i' && input != 'I' && input != 'q' && input != 'Q') {
+	           input != 'H' && input != 'q' && input != 'Q') {
 	        cout << "Error: Unknown input. Please Select a valid option: ";
 	        cin >> input;
 	        cout << endl;
@@ -472,5 +480,10 @@ public:
 		}
 	        
     }
+    
+    //strategy for print
+	void print(){
+		displayStrategy->view();
+	}
 };
 #endif
