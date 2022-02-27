@@ -204,7 +204,7 @@ public:
 	    	searchdata();
 	        if(currentElement == -1) {
 	            cout << "no such SubList or Task!!" << endl;
-	            cout << "returning to Main Menu......" << endl;
+	            cout << "\n returning to Main Menu......" << endl << endl;
 	            printMenu();
 			}
 			
@@ -227,7 +227,7 @@ public:
 	        searchdata();
 	        if(currentElement == -1) {
 	            cout << "no such SubList or Task!!" << endl;
-	            cout << "returning to Main Menu......" << endl;
+	            cout << "\n returning to Main Menu......" << endl << endl;
 	            printMenu();
 			}
 			
@@ -246,37 +246,46 @@ public:
 			}
 			else{
                 for(int i = 0; i < base.size(); i++) {
+                	//have number before every display
+                	cout << i + 1 << ")" << endl;
             	    base.at(i)->display();
 			    }
 		    }
 		}
-	//	
-	//	//View finished tasks
-	//    if (input == 'f' || input == 'F'){
-	//    	
-	//	}
-	//	
-	//	//View unfinished tasks
-	//    if (input == 'g' || input == 'G'){
-	//    	
-	//	}
-	//	
+		
+		//View finished tasks
+	    if (input == 'f' || input == 'F'){
+	    	set(new Select_Finished(base));
+            print();
+		}
+		
+		//View unfinished tasks
+	    if (input == 'g' || input == 'G'){
+	    	set(new Select_Unfinished(base));
+            print();	    	
+		}
+		
 	//	//Display by priority
 	    if (input == 'h' || input == 'H'){
             set(new Select_ByPriority(base));
             print();
 		}
-	//	
-	//	//Display by duedate
-	//    if (input == 'i' || input == 'I'){
-	//    	
-	//	}
-	//	
-	//	//Display by classification
-	//    if (input == 'j' || input == 'J'){
-	//    	
-	//	}
-	//	
+		
+		//Display by duedate
+	    if (input == 'i' || input == 'I'){
+	    	set(new Select_ByDueDate(base));
+            print();	    	
+		}
+		
+		//Display by classification
+	    if (input == 'j' || input == 'J'){
+	    	cout << "Which type of tasks and sublist do you want to see (work, study, or personal)" << endl;
+	    	string type;
+	    	cin >> type;
+			set(new Select_ByClassification(base, type));
+            print();	    	
+		}
+		
 		//Delete all Sublists and tasks
 	    if (input == 'k' || input == 'K'){
 	    	deleteAllElementFromSpreadsheet();
@@ -290,8 +299,8 @@ public:
             cout << "See you next time!" << endl;
             exit(0);
 		}
-	cout << "returning to Main Menu..." << endl;
-	printMenu();
+	    cout << "\n returning to Main Menu......" << endl << endl;
+	    printMenu();
 	
 }
 
@@ -347,7 +356,21 @@ public:
 	    
 	    //f - Delete this task
 	    if (input == 'f' || input == 'F'){
-		
+	    	//we need to know the name of sublist we need to delete
+            Name = spreadsheet.at(currentElement)->getName();
+	    	//its hierarchy is 0 
+		    if(spreadsheet.at(currentElement)->getHierarchy() == 0) {
+		    	//delete this task both in spreadsheet and base
+		    	deleteOneElementFromSpreadsheet();
+		    	deleteOneElementFromBase();
+			}
+			else{
+			    // now currentElement task is the one we need to delete
+				//just call function to delete it
+				spreadsheet.at(currentElement)->getParent()->deleteOneSpecificSublist(Name);
+				//we still need to delete it from vector spreadsheet, we just deleted it from vector base
+				deleteOneElementFromSpreadsheet();
+			}            
 		}
 		
 		//g - Mark this task as finished
@@ -364,7 +387,7 @@ public:
 	    
 	    //q - Return to Main Menu
 	    if (input == 'i' || input == 'I'){
-		cout << "Returning to Main Menu......" << endl;
+	    cout << "\n returning to Main Menu......" << endl << endl;
 		}
 		printMenu();
         
@@ -475,7 +498,7 @@ public:
 	    
 	    //q - Return to Main Menu
 	    if (input == 'i' || input == 'I'){
-		cout << "Returning to Main Menu......" << endl;
+	    cout << "\n returning to Main Menu......" << endl << endl;
 		printMenu();
 		}
 	        

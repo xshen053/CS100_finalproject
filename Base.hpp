@@ -33,6 +33,7 @@ public:
 	virtual void deleteAllSublist() = 0;
 	virtual void deleteOneSpecificSublist(string name) = 0;
 	virtual Base* getParent() = 0;
+	virtual bool isComplete() = 0;
 protected:
     string title;
     string priority;
