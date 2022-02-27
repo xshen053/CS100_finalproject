@@ -130,7 +130,7 @@ public:
 	Base* getParent(){
 		return parent;
 	}
-	virtual vector<Base*> getSubLists(){}
+	//virtual vector<Base*> getSubLists(){}
 	virtual void refreshSubLists(vector<Base*> ListofTasks){}
 	virtual void push(Base* t){}
 	virtual void deleteAllSublist(){}
