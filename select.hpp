@@ -80,7 +80,11 @@ public:
 		}
 		else if(dd1 != dd2){
 			return dd1 < dd2;
-        }		
+        }
+        //two dates are equal
+		else{
+			return false;
+		}		
 	}
 	
 	void view(){
