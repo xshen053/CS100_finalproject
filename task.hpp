@@ -13,7 +13,7 @@ class Task: public Base{
 	
 	
 public:
-    ~Task();
+//    ~Task();
     
     
     Task(string taskTitle, string taskPriority, string taskDescription, string taskDueDate, string taskType){
