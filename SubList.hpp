@@ -21,6 +21,8 @@ private:
 	
 public:
 	
+    ~SubList();
+	
 	SubList(string taskTitle, string taskPriority, string taskDescription, string taskDueDate, string taskType, vector<Base*> ListofTasks){
 		title = taskTitle;
         priority = taskPriority;
@@ -142,13 +144,49 @@ public:
 		return hierarchy;
 	}
 	
+	void setParent(Base* p){
+		parent = p;
+	}
+	
+	Base* getParent(){
+		return parent;
+	}
+	
 	//SubList function
 	vector<Base*> getSubLists(){
 		return listOfTasks;
 	}
 	
+	//put one task/sublist into its list as a sublist
 	void push(Base* t){
 		listOfTasks.push_back(t);
+	}
+	
+	//delete all its Sublist
+	void deleteAllSublist(){
+		if(listOfTasks.size() != 0){
+		    for(vector<Base*>::iterator itr = listOfTasks.begin(); itr != listOfTasks.end();){
+			    itr = listOfTasks.erase(itr);
+		    }	
+		}
+
+	}
+	//deleteOneSpecificSublist
+	void deleteOneSpecificSublist(string name){
+		//debug
+//		cout << "size: " << listOfTasks.size() << endl;
+		int flag = -1;
+		for(int i = 0; i < listOfTasks.size(); i++){
+			if (listOfTasks.at(i)->getName() == name){
+				flag = i;
+				//debug
+                //cout << "flag:" << flag << endl;
+				break;
+			}
+		}
+        listOfTasks.erase(listOfTasks.begin() + flag);
+        //debug
+//        cout << "size: " << listOfTasks.size() << endl;
 	}
 	
 };
