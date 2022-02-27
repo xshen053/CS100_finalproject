@@ -21,7 +21,7 @@ private:
 	
 public:
 	
-    ~SubList();
+//    ~SubList();
 	
 	SubList(string taskTitle, string taskPriority, string taskDescription, string taskDueDate, string taskType, vector<Base*> ListofTasks){
 		title = taskTitle;
