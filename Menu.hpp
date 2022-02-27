@@ -16,7 +16,8 @@ class Menu{
 private:
     vector<Base*> base;
     vector<Base*> spreadsheet;    //store all task and sublist regardless of hierarchy 
-    int currentElement;           //current Task/Sublist
+    int currentElement;           //current Task/Sublist order in spreadsheet
+    string Name;                  //current Task/Sublist name
 public:
 	
 	Menu(vector<Base*> tasklist){
@@ -33,6 +34,42 @@ public:
 		task->setType();
 		spreadsheet.push_back(task);
 		return task;
+	}
+	
+	//delete one element in spreadsheet
+	void deleteOneElementFromSpreadsheet(){
+		spreadsheet.erase(spreadsheet.begin() + currentElement);
+	}
+	
+	//delete one element in base
+	void deleteOneElementFromBase(){
+		for(int i = 0; i < base.size(); i++){
+			if (base.at(i)->getName() == Name){
+				base.erase(base.begin() + i);
+				break;
+			}
+		}
+	}
+	
+	void deleteAllElementFromSpreadsheet(){
+		if(spreadsheet.size() == 0){
+		    cout << "Don't have any task or sublist!!" << endl;
+		}
+		else{
+		    for(vector<Base*>::iterator itr = spreadsheet.begin(); itr != spreadsheet.end();){
+			    itr = spreadsheet.erase(itr);
+		    }				
+		} 
+	}
+	void deleteAllElementFromBase(){
+		if(base.size() == 0){
+		    cout << "Don't have any task or sublist!!" << endl;
+		}
+		else{
+		    for(vector<Base*>::iterator itr = base.begin(); itr != base.end();){
+			    itr = base.erase(itr);
+		    }				
+		} 		
 	}
 	
 	//find a specific sublist or task
@@ -134,6 +171,8 @@ public:
 	    if (input == 'a' || input == 'A'){
 		    //start running
 		    Base* temp = initializeSublist();
+		    //hierachy = 0, they don't need any parent, we can just delete them directly use Base and Spreadsheet
+		    temp->setParent(NULL);
 		    base.push_back(temp);
 		}
 		
@@ -141,6 +180,8 @@ public:
 	    if (input == 'b' || input == 'B'){
 	        //start running
 		    Base* temp = initializeTask();
+		    //hierachy = 0, they don't need any parent, we can just delete them directly use Base and Spreadsheet
+		    temp->setParent(NULL);
 			base.push_back(temp);
 		}
 	//	
@@ -227,10 +268,12 @@ public:
 	//    	
 	//	}
 	//	
-	//	//Delete all Sublists and tasks
-	//    if (input == 'k' || input == 'K'){
-	//    	
-	//	}										
+		//Delete all Sublists and tasks
+	    if (input == 'k' || input == 'K'){
+	    	deleteAllElementFromSpreadsheet();
+	    	deleteAllElementFromBase();
+	    	
+		}										
 	//    
 	//	}
 	//	
@@ -373,6 +416,8 @@ public:
 		    Base* temp = initializeTask();
 		    //A task embedded in a list will not store in the main vector which is vector<Base*> base 
 		    spreadsheet.at(currentElement)->push(temp);
+		    //set its parent, so that we are able to delete it using its parent
+		    temp->setParent(spreadsheet.at(currentElement));
 		    //get this task's hierarchy 
 		    int h = spreadsheet.at(currentElement)->getHierarchy();
 		    //Increase newly-add task hierarchy
@@ -385,6 +430,8 @@ public:
 		    Base* temp = initializeSublist();
 		    //A sublist embedded in a list will not store in the main vector which is vector<Base*> base 
 		    spreadsheet.at(currentElement)->push(temp);
+		    //set its parent, so that we are able to delete it using its parent
+		    temp->setParent(spreadsheet.at(currentElement));
 		    //get this list's hierarchy 
 		    int h = spreadsheet.at(currentElement)->getHierarchy();
 		    //Increase newly-add sublist hierarchy
@@ -394,7 +441,27 @@ public:
 	    
 	    //h - Delete this Sublist, which will automatically delete all of its sublist 
 	    if (input == 'h' || input == 'H'){
-		
+	    	Name = spreadsheet.at(currentElement)->getName();
+	    	//its hierarchy is 0 
+		    if(spreadsheet.at(currentElement)->getHierarchy() == 0) {
+                
+		    	//make sure this list have already erase all of its sublists
+		    	spreadsheet.at(currentElement)->deleteAllSublist();
+		    	//delete this sublist both in spreadsheet and base
+		    	deleteOneElementFromSpreadsheet();
+		    	deleteOneElementFromBase();
+			}
+			else{
+			    // now currentElement sublist is the one we need to delete
+			    // so we need to get its parent	
+				spreadsheet.at(currentElement)->getParent();
+				//we need to know the name of sublist we need to delete
+				string name = spreadsheet.at(currentElement)->getName();
+				//just call function to delete it
+				spreadsheet.at(currentElement)->getParent()->deleteOneSpecificSublist(name);
+				//we still need to delete it from vector spreadsheet, we just deleted it from vector base
+				deleteOneElementFromSpreadsheet();
+			}
 		}
 	    
 	    //q - Return to Main Menu

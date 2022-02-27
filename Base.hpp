@@ -8,6 +8,8 @@ using namespace std;
 
 class Base {
 public:
+	virtual ~Base() = default;
+	
     virtual void display() = 0;
     virtual void setName() = 0;
     virtual string getName() = 0;
@@ -27,15 +29,19 @@ public:
     virtual void setUnfinished() = 0;
     virtual void hierarchyIncrease(int h) = 0;
 	virtual int getHierarchy()  = 0;
+	virtual void setParent(Base* p) = 0;
+	virtual void deleteAllSublist() = 0;
+	virtual void deleteOneSpecificSublist(string name) = 0;
+	virtual Base* getParent() = 0;
 protected:
     string title;
     string priority;
     string description;
     string dueDate;
     string classification;
-    vector<Base> tasks;
     bool complete;
     int hierarchy = 0; 
+    Base* parent;
 };
 
 

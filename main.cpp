@@ -14,9 +14,10 @@ int main(){
 	vector<Base*> listofTasks;
 	Menu *menu = new Menu(listofTasks);
 	menu->printMenu();
-	
+//	
 //	Base* a = new Task("", "", "", "", "");
 //	Base* c = new Task("", "", "", "", "");
+//	Base* e = new Task("", "", "", "", "");
 ////	listofTasks.push_back(a);
 ////	listofTasks.push_back(c);
 //	Base* b = new SubList("", "", "", "", "", listofTasks);
@@ -24,41 +25,54 @@ int main(){
 //	b->push(a);
 //	b->push(c);
 ////	vector<Base*> temp = b->getSubLists();
-////	
-////	temp.push_back(a);
-////	temp.push_back(c);
-////	listofTasks.push_back(b);
+//////	
+//////	temp.push_back(a);
+//////	temp.push_back(c);
+//////	listofTasks.push_back(b);
 //	vector<Base*> listofTasksb;    
 //	listofTasksb.push_back(b);
+//	listofTasksb.push_back(e);
 //    Base* d = new SubList("", "", "", "", "", listofTasksb);
-////    d->getSubLists().back()->getSubLists().push_back(a);
-////    d->getSubLists().back()->getSubLists().push_back(c);
-//	a->setName("helloworld");
-//	a->setPriority("hurry");
-//	a->setDuedate("2020");
-//	a->setDescription("fdsf");
-//	a->setType("haha");
+//////    d->getSubLists().back()->getSubLists().push_back(a);
+//////    d->getSubLists().back()->getSubLists().push_back(c);
+//	a->setName();
+//	a->setPriority();
+//	a->setDuedate();
+//	a->setDescription();
+//	a->setType();
 //	
-//	c->setName("helloworld");
-//	c->setPriority("hurry");
-//	c->setDuedate("2021");
-//	c->setDescription("fdsf");
-//	c->setType("haha");
-////	a->displayTask();
-//	b->setName("helloworld");
-//	b->setPriority("hurry");
-//	b->setDuedate("2022");
-//	b->setDescription("fdsf");
-//	b->setType("haha");
-////	b->displayTask();
-//	cout << endl;
-////	auto iter = listofTasks.erase(listofTasks.begin());
-//	
-//	//veryimportant function to delete task from a sublist
-////	b->refreshSubLists(listofTasks);
-//	
+//	b->setName();
+//	b->setPriority();
+//	b->setDuedate();
+//	b->setDescription();
+//	b->setType();
+//	c->setName();
+//	c->setPriority();
+//	c->setDuedate();
+//	c->setDescription();
+//	c->setType();
+//		
+//	e->setName();
+//	e->setPriority();
+//	e->setDuedate();
+//	e->setDescription();
+//	e->setType();
+//////	b->displayTask();
+////	cout << endl;
+//////	auto iter = listofTasks.erase(listofTasks.begin());
+////	
+////	//veryimportant function to delete task from a sublist
+//////	b->refreshSubLists(listofTasks);
+////	
+//    string g = "b";
 //	d->display();
-//	cout << endl;
+////	d->deleteAllSublist();
+//	cout << "--------------------";
+//	d->display();
+//	d->deleteOneSpecificSublist(g);
+//	cout << "--------------------";
+//	d->display();
+////	cout << endl;
 
 
 	return 0;

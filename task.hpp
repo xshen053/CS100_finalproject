@@ -13,7 +13,9 @@ class Task: public Base{
 	
 	
 public:
-
+    ~Task();
+    
+    
     Task(string taskTitle, string taskPriority, string taskDescription, string taskDueDate, string taskType){
         title = taskTitle;
         priority = taskPriority;
@@ -121,10 +123,18 @@ public:
 	int getHierarchy(){
 		return hierarchy;
 	}
+	void setParent(Base* p){
+		parent = p;
+	}
 	
+	Base* getParent(){
+		return parent;
+	}
 	virtual vector<Base*> getSubLists(){}
 	virtual void refreshSubLists(vector<Base*> ListofTasks){}
 	virtual void push(Base* t){}
+	virtual void deleteAllSublist(){}
+	virtual void deleteOneSpecificSublist(string name){}
 };
 
 #endif 
