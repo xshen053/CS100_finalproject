@@ -47,6 +47,16 @@ public:
 			cout << "\t"; 
 		}		
 		cout << "Task type:" << classification << endl;
+		for (int i = 0; i < hierarchy; i++){
+			cout << "\t"; 
+		}
+		cout << "Is Task complete: ";
+		if(complete == false){
+			cout << "No" << endl;
+		}
+		else{
+			cout << "Yes" << endl;
+		}
 	}
 	
 	void setName(){
@@ -83,7 +93,7 @@ public:
 	}
 	
 	void setDuedate(){
-		cout << "Type in the new task duedate (mm/dd/year) followed by ENTER:" << endl;
+		cout << "Type in the new task duedate (dd/mm/yyyy) followed by ENTER:" << endl;
 		string taskDueDate;
 		cin >> taskDueDate;
 		dueDate = taskDueDate;
@@ -94,7 +104,7 @@ public:
 	}
 	
 	void setType(){
-		cout << "Type in the new task classification followed by ENTER:" << endl;
+		cout << "Type in the new task classification (personal, study, or work) followed by ENTER:" << endl;
 		string taskType;
 		cin >> taskType;
 		classification = taskType;
@@ -129,6 +139,10 @@ public:
 	
 	Base* getParent(){
 		return parent;
+	}
+	
+	bool isComplete(){
+		return complete;
 	}
 	//virtual vector<Base*> getSubLists(){}
 	virtual void refreshSubLists(vector<Base*> ListofTasks){}

@@ -54,7 +54,17 @@ public:
 		for (int i = 0; i < hierarchy; i++){
 			cout << "\t"; 
 		}		
-		cout << "Sublist type:" << classification << endl; 
+		cout << "Sublist type:" << classification << endl;
+		for (int i = 0; i < hierarchy; i++){
+			cout << "\t"; 
+		}		 
+		cout << "Is Sublist complete: ";
+		if(complete == false){
+			cout << "No" << endl;
+		}
+		else{
+			cout << "Yes" << endl;
+		}		
 		displaySubLists();	
 	}
 	
@@ -83,7 +93,7 @@ public:
 	void setPriority(){
 		cout << "Type in the new sublist priority (high, medium, or low) followed by ENTER" << endl;
 		string taskPriority;
-		cin >> priority;
+		cin >> taskPriority;
 	    priority = taskPriority;
 	}
 	
@@ -103,7 +113,7 @@ public:
 	}
 	
 	void setDuedate(){
-		cout << "Type in the new sublist duedate (mm/dd/year) followed by ENTER:" << endl;
+		cout << "Type in the new sublist duedate (dd/mm/yyyy) followed by ENTER:" << endl;
 		string taskDueDate;
 		cin >> taskDueDate;
 		dueDate = taskDueDate;
@@ -114,7 +124,7 @@ public:
 	}
 	
 	void setType(){
-		cout << "Type in the new sublist classification followed by ENTER:" << endl;
+		cout << "Type in the new sublist classification (personal, study, or work)  followed by ENTER:" << endl;
 		string taskType;
 		cin >> taskType;
 		classification = taskType;
@@ -151,6 +161,10 @@ public:
 	Base* getParent(){
 		return parent;
 	}
+	
+	bool isComplete(){
+		return complete;
+	}	
 	
 	//SubList function
 	vector<Base*> getSubLists(){
