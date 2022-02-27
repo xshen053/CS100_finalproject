@@ -14,16 +14,25 @@ int main(){
 	vector<Base*> listofTasks;
 	Menu *menu = new Menu(listofTasks);
 	menu->printMenu();
-//	
+	
 //	Base* a = new Task("", "", "", "", "");
 //	Base* c = new Task("", "", "", "", "");
-//	listofTasks.push_back(a);
-//	listofTasks.push_back(c);
+////	listofTasks.push_back(a);
+////	listofTasks.push_back(c);
 //	Base* b = new SubList("", "", "", "", "", listofTasks);
+//	//variable can only be change in that function 
+//	b->push(a);
+//	b->push(c);
+////	vector<Base*> temp = b->getSubLists();
+////	
+////	temp.push_back(a);
+////	temp.push_back(c);
 ////	listofTasks.push_back(b);
 //	vector<Base*> listofTasksb;    
 //	listofTasksb.push_back(b);
 //    Base* d = new SubList("", "", "", "", "", listofTasksb);
+////    d->getSubLists().back()->getSubLists().push_back(a);
+////    d->getSubLists().back()->getSubLists().push_back(c);
 //	a->setName("helloworld");
 //	a->setPriority("hurry");
 //	a->setDuedate("2020");

@@ -20,17 +20,37 @@ public:
         description = taskDescription;
         dueDate = taskDueDate;
         classification = taskType;
+        complete = false;
+        hierarchy = 0; 
 	}
 	
 	void display(){
+		for (int i = 0; i < hierarchy; i++){
+			cout << "\t"; 
+		}
 		cout << "Task Name:" << title << endl;
+		for (int i = 0; i < hierarchy; i++){
+			cout << "\t"; 
+		}
 		cout << "Task Priority:" << priority << endl;
+		for (int i = 0; i < hierarchy; i++){
+			cout << "\t"; 
+		}
 		cout << "Task Description:" << description << endl;
+		for (int i = 0; i < hierarchy; i++){
+			cout << "\t"; 
+		}		
 		cout << "Task Duedate:" << dueDate << endl;
+		for (int i = 0; i < hierarchy; i++){
+			cout << "\t"; 
+		}		
 		cout << "Task type:" << classification << endl;
 	}
 	
-	void setName(string taskName){
+	void setName(){
+		cout << "Type in new task name followed by ENTER:" << endl;
+		string taskName;
+		getline(cin.ignore(), taskName);
 		title = taskName;
 	}
 	
@@ -38,7 +58,10 @@ public:
 		return title;
 	}
 	
-	void setPriority(string taskPriority){
+	void setPriority(){
+		cout << "Type in the new task priority (high, medium, or low) followed by ENTER" << endl;
+		string taskPriority;
+		cin >> priority;
 	    priority = taskPriority;
 	}
 	
@@ -46,7 +69,10 @@ public:
 		return priority;
 	}
 	
-	void setDescription(string taskDescription){
+	void setDescription(){
+		cout << "Type in the new task description followed by ENTER:" << endl;
+		string taskDescription;
+		getline(cin.ignore(), taskDescription);
 		description = taskDescription;
 	}
 	
@@ -54,7 +80,10 @@ public:
 		return description;
 	}
 	
-	void setDuedate(string taskDueDate){
+	void setDuedate(){
+		cout << "Type in the new task duedate (mm/dd/year) followed by ENTER:" << endl;
+		string taskDueDate;
+		cin >> taskDueDate;
 		dueDate = taskDueDate;
 	}
 	
@@ -62,7 +91,10 @@ public:
 		return dueDate;
 	}
 	
-	void setType(string taskType){
+	void setType(){
+		cout << "Type in the new task classification followed by ENTER:" << endl;
+		string taskType;
+		cin >> taskType;
 		classification = taskType;
 	}
 	
@@ -74,9 +106,25 @@ public:
 		return "Single task";
 	}
 	
+	void setFinished(){
+		complete = true;
+	}
+	
+	void setUnfinished(){
+		complete = false;
+	}
+	
+	void hierarchyIncrease(int h){
+		hierarchy = h + 1; 
+	} 
+	
+	int getHierarchy(){
+		return hierarchy;
+	}
+	
 	virtual vector<Base*> getSubLists(){}
 	virtual void refreshSubLists(vector<Base*> ListofTasks){}
-	
+	virtual void push(Base* t){}
 };
 
 #endif 
