@@ -22,7 +22,7 @@ public:
     virtual void setType() = 0;
     virtual string getType() = 0;
     virtual string checkType() = 0;
-    virtual vector<Base*> getSubLists() = 0;
+    //virtual vector<Base*> getSubLists() = 0;
     virtual void refreshSubLists(vector<Base*> ListofTasks) = 0;
     virtual void push(Base* t) = 0;
     virtual void setFinished() = 0;

@@ -161,7 +161,8 @@ public:
 		while (input != 'a' && input != 'A' && input != 'b' && input != 'B' && input != 'c' &&
 	           input != 'C' && input != 'd' && input != 'D' && input != 'e' && input != 'E' &&
 	           input != 'f' && input != 'F' && input != 'g' && input != 'G' && input != 'h' &&
-	           input != 'H' && input != 'i' && input != 'I' && input != 'q' && input != 'Q') {
+	           input != 'H' && input != 'i' && input != 'I' && input != 'j' && input != 'J' &&
+			   input != 'k' && input != 'K' && input != 'q' && input != 'Q') {
 	        cout << "Error: Unknown input. Please Select a valid option: ";
 	        cin >> input;
 	        cout << endl;
