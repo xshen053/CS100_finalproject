@@ -1,113 +1,91 @@
 #ifndef __SELECT_HPP__
 #define __SELECT_HPP__
 
-#include <iostream> 
-#include <cstring>
+#include <string>
+#include <vector>
+#include "SubList.hpp"
+#include "task.hpp"
+class Base;
 
 class Select{
 public:
     virtual ~Select() = default;
     
-    virtual bool select(int row) const = 0;
-    virtual int get_rows_size() const = 0;
+    virtual void view() = 0;
 };
 
-class Select_ByDueDate: public Select{
-protected:
-    int column;
-    bool* Rows;
-    int size;
-    
-public:
-    ~Select_ByDueDate(){}
-    Select_ByDueDate(){}
-    
-    virtual bool select(int row) const{
-       return Rows[row];
-    }
-
-    virtual int get_rows_size() const{
-       return size; 
-    } 
-    
-};
+//class Select_ByDueDate: public Select{
+//protected:
+//    vector<Base*> base;
+//    
+//public:
+//    ~Select_ByDueDate(){}
+//    Select_ByDueDate(vector<Base*> data){
+//	base = data;
+//	}
+//    
+//    
+//};
 
 class Select_ByPriority: public Select{
 protected:
-    int column;
-    bool* Rows;
-    int size;
+    vector<Base*> base;
     
 public:
-    ~Select_ByPriority(){}
-    Select_ByPtiority(){}
+//    ~Select_ByPriority(){}
+    Select_ByPriority(vector<Base*> data){
+	base = data;
+	}
     
-    virtual bool select(int row) const{
-       return Rows[row];
-    }
-
-    virtual int get_rows_size() const{
-       return size; 
-    } 
-    
-};
-
-class Select_ByCategory: public Select{
-protected:
-    int column;
-    bool* Rows;
-    int size;
-    
-public:
-    ~Select_ByCategory(){}
-    Select_ByCategory(){}
-    
-    virtual bool select(int row) const{
-       return Rows[row];
-    }
-
-    virtual int get_rows_size() const{
-       return size; 
-    } 
+    void view(){
+    	for(int i = 0; i < base.size(); i++){
+    		if(base.at(i)->getPriority() == "high"){
+    			base.at(i)->display();
+			}
+		}
+	}
     
 };
-
-class Select_Finished: public Select{
-protected:
-    int column;
-    bool* Rows;
-    int size;
-    
-public:
-    ~Select_Finished(){}
-    Select_Finished(){}
-    
-    virtual bool select(int row) const{
-       return Rows[row];
-    }
-
-    virtual int get_rows_size() const{
-       return size; 
-    } 
-    
-};
-
-class Select_Unfinished: public Select{
-protected:
-    int column;
-    bool* Rows;
-    int size;
-    
-public:
-    ~Select_Unfinished(){}
-    Select_Unfinished(){}
-    
-    virtual bool select(int row) const{
-       return Rows[row];
-    }
-
-    virtual int get_rows_size() const{
-       return size; 
-    } 
-    
-};
+//
+//class Select_ByCategory: public Select{
+//protected:
+//    int column;
+//    bool* Rows;
+//    int size;
+//    
+//public:
+//    ~Select_ByCategory(){}
+//    Select_ByCategory(){}
+//    
+//
+//    
+//};
+//
+//class Select_Finished: public Select{
+//protected:
+//    int column;
+//    bool* Rows;
+//    int size;
+//    
+//public:
+//    ~Select_Finished(){}
+//    Select_Finished(){}
+//    
+//
+//    
+//};
+//
+//class Select_Unfinished: public Select{
+//protected:
+//    int column;
+//    bool* Rows;
+//    int size;
+//    
+//public:
+//    ~Select_Unfinished(){}
+//    Select_Unfinished(){}
+//    
+//
+//    
+//};
+#endif
