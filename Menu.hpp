@@ -152,6 +152,8 @@ public:
 	cout << "f - Add another task to this sublist" << endl;
 	cout << "g - Add another sublist to this sublist" << endl;
 	cout << "h - Delete this Sublist" << endl;
+    cout << "i - Mark this sublist as finished" << endl;
+    cout << "j - Mark this sublist as unfinished" << endl;	
 	cout << "q - Return to Main Menu" << endl;
 	cout << "------------------------------------------" << endl;
 	
@@ -374,22 +376,23 @@ public:
 		}
 		
 		//g - Mark this task as finished
-		if  (input == 'f' || input == 'F'){
+		if  (input == 'g' || input == 'G'){
 //			base.at(base.size() - 1)->setFinished();
             spreadsheet.at(currentElement)->setFinished();
 	    }
 		
 		//h - Mark this task as unfinished
-		if  (input == 'f' || input == 'F'){
+		if  (input == 'h' || input == 'H'){
 //			base.at(base.size() - 1)->setUnfinished();
             spreadsheet.at(currentElement)->setUnfinished();
 	    }
 	    
 	    //q - Return to Main Menu
-	    if (input == 'i' || input == 'I'){
+	    if (input == 'q' || input == 'Q'){
 	    cout << "\n returning to Main Menu......" << endl << endl;
+	    printMenu();
 		}
-		printMenu();
+
         
     }
 	
@@ -407,7 +410,8 @@ public:
 		while (input != 'a' && input != 'A' && input != 'b' && input != 'B' && input != 'c' &&
 	           input != 'C' && input != 'd' && input != 'D' && input != 'e' && input != 'E' &&
 	           input != 'f' && input != 'F' && input != 'g' && input != 'G' && input != 'h' &&
-	           input != 'H' && input != 'q' && input != 'Q') {
+	           input != 'H' && input != 'i' && input != 'I' && input != 'j' && input != 'J' && 
+			   input != 'q' && input != 'Q') {
 	        cout << "Error: Unknown input. Please Select a valid option: ";
 	        cin >> input;
 	        cout << endl;
@@ -495,9 +499,17 @@ public:
 				deleteOneElementFromSpreadsheet();
 			}
 		}
+		
+		if (input == 'i' || input == 'I'){
+            spreadsheet.at(currentElement)->setFinished();			
+		}
+		
+		if (input == 'j' || input == 'J'){
+			spreadsheet.at(currentElement)->setUnfinished();
+		}
 	    
 	    //q - Return to Main Menu
-	    if (input == 'i' || input == 'I'){
+	    if (input == 'q' || input == 'Q'){
 	    cout << "\n returning to Main Menu......" << endl << endl;
 		printMenu();
 		}
