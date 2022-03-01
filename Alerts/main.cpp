@@ -1,4 +1,3 @@
- guess I don't need to do this part yet, but for a clock and I randomly done get time, will fix teammate done thier part.
 
 #include<iostream>
 #include<windows.h>
