@@ -9,7 +9,6 @@ using namespace std;
 
 
 
-
 int main(){
 	vector<Base*> listofTasks;
 	Menu *menu = new Menu(listofTasks);
