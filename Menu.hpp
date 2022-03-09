@@ -19,7 +19,7 @@ private:
     vector<Base*> spreadsheet;    //store all task and sublist regardless of hierarchy 
     int currentElement;           //current Task/Sublist order in spreadsheet
     string Name;                  //current Task/Sublist name
-	Select *displayStrategy;      //different method to display tasks and sublists
+	Select *displayStrategy = nullptr;      //different method to display tasks and sublists
 public:
 	
 	Menu(vector<Base*> tasklist){
@@ -28,9 +28,39 @@ public:
 	
 	//Select
 	void set(Select *s){
+//		displayStrategy->clear();
+		delete displayStrategy;
 		displayStrategy = s;
 	}
 	
+	//release memory
+        void clear(){
+	    cout << "test:" << endl;
+            for (vector<Base*>::iterator it = base.begin(); it != base.end(); it++){
+	        if(*it != NULL){
+		    delete *it;
+		    *it = NULL;
+		}
+	    }
+	    
+            for (vector<Base*>::iterator it = spreadsheet.begin(); it != spreadsheet.end(); it++){
+                if(*it != NULL){
+                    delete *it;
+                    *it = NULL;
+                }
+            }
+	    //spreadsheet.clear();
+	    
+	}
+
+	void clear1(){
+	    for(int i = 0; i < spreadsheet.size(); i++){
+	        delete spreadsheet.at(i);
+	    }
+//	    displayStrategy->clear();
+	    delete displayStrategy;
+	}
+
     Base* initializeTask(){
 		Base* task = new Task("", "", "", "", "");
 		//When creating a new task, we automatically enable user set all its properties 
@@ -40,6 +70,7 @@ public:
 		task->setDuedate();
 		task->setType();
 		spreadsheet.push_back(task);
+		
 		return task;
 	}
 	
@@ -186,6 +217,8 @@ public:
 		    //hierachy = 0, they don't need any parent, we can just delete them directly use Base and Spreadsheet
 		    temp->setParent(NULL);
 		    base.push_back(temp);
+		    
+		    printMenu();
 		}
 		
 		//Create a task
@@ -194,9 +227,11 @@ public:
 		    Base* temp = initializeTask();
 		    //hierachy = 0, they don't need any parent, we can just delete them directly use Base and Spreadsheet
 		    temp->setParent(NULL);
-			base.push_back(temp);
+		    base.push_back(temp);
+	
+		    printMenu();
 		}
-	//	
+
 		//Edit a SubList
 	    if (input == 'c' || input == 'C'){
 	    	//first display all tasks and sublists
@@ -217,6 +252,7 @@ public:
 	    	    printSubListActions();
 	    	    SubListActions();
 	        }
+		printMenu();
 		}
 		
 		//Edit a task
@@ -240,6 +276,7 @@ public:
 	    	    printTaskActions();
 	    	    TaskActions();
 	        }
+		printMenu();	
 		}
 		
 		
@@ -255,6 +292,7 @@ public:
             	    base.at(i)->display();
 			    }
 		    }
+		printMenu();
 		}
 		
 		//View finished tasks
@@ -275,6 +313,7 @@ public:
 				set(new Select_Finished(new Select_ByDueDate(new Select_GetList(base))));
 			}
 			print();
+                printMenu();			
 		}
 		
 		//View unfinished tasks
@@ -294,7 +333,8 @@ public:
 			else if(c == 2){
 				set(new Select_Unfinished(new Select_ByDueDate(new Select_GetList(base))));
 			}
-			print();	    	
+			print();
+	        printMenu();		
 		}
 		
 	//	//Display by priority
@@ -315,6 +355,7 @@ public:
 				set(new Select_ByPriority(new Select_ByDueDate(new Select_GetList(base))));
 			}
 			print();
+                printMenu();
 		}
 		
 		//Display by duedate
@@ -335,6 +376,7 @@ public:
 				set(new Select_ByDueDate(new Select_ByPriority(new Select_GetList(base))));
 			}
 			print();  	
+	        printMenu();
 		}
 		
 		//Display by classification
@@ -357,13 +399,15 @@ public:
 			else if(c == 2){
 				set(new Select_ByClassification(new Select_ByDueDate(new Select_GetList(base)), type));
 			}
-			print();  	
+			print();
+                printMenu();
 		}
 		
 		//Delete all Sublists and tasks
 	    if (input == 'k' || input == 'K'){
 	    	deleteAllElementFromSpreadsheet();
 	    	deleteAllElementFromBase();
+                printMenu();		
 		}										
 	      
 	    //Display by duedate with priority
@@ -380,10 +424,10 @@ public:
 	//	
 	    if (input == 'q' || input == 'Q'){
             cout << "See you next time!" << endl;
-            exit(0);
-		}
-	    cout << "\n returning to Main Menu......" << endl << endl;
-	    printMenu();
+//            exit(0);
+	    }
+//	    cout << "\n returning to Main Menu......" << endl << endl;
+//	    printMenu();
 	
 }
 
