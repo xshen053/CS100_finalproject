@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
 
-#include "task_test.hpp"
+#include "../Tests/task_test.hpp"
 
 
 int main(int argc, char **argv) {
