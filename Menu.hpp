@@ -117,14 +117,14 @@ public:
     cout << "c - Edit a SubList" << endl;
     cout << "d - Edit a task" << endl;
     cout << "e - View all SubLists and tasks" << endl;
-    cout << "f - View finished tasks" << endl;
-    cout << "g - View unfinished tasks" << endl;
-    cout << "h - Display by priority" << endl;
-    cout << "i - Display by duedate" << endl;
-    cout << "j - Display by classification" << endl;
+    cout << "f - View finished tasks (multiple strategy)" << endl;
+    cout << "g - View unfinished tasks (multiple strategy)" << endl;
+    cout << "h - Display by priority (multiple strategy)" << endl;
+    cout << "i - Display by duedate (multiple strategy)" << endl;
+    cout << "j - Display by classification (multiple strategy)" << endl;
     cout << "k - Delete all Sublists and tasks" << endl;
-    cout << "l - Display by duedate with priority" << endl; 
-    cout << "m - Display unfinished task ordered by duedate and priority" << endl;    
+//    cout << "l - Display by duedate with priority" << endl; 
+//    cout << "m - Display unfinished task ordered by duedate and priority" << endl;    
     cout << "q - Exit Task Scheduler" << endl;
     MenuActions();
 	}
@@ -169,12 +169,11 @@ public:
 		cin >> input;
 		cout << endl;
 		
-		while (input != 'a' && input != 'A' && input != 'b' && input != 'B' && input != 'c' &&
+		while (input != 'a' && input != 'A' && input != 'b' && input != 'B' && input != 'c' &&  //&& input != 'l' && input != 'L' && input != 'm' && input != 'M' 
 	           input != 'C' && input != 'd' && input != 'D' && input != 'e' && input != 'E' &&
 	           input != 'f' && input != 'F' && input != 'g' && input != 'G' && input != 'h' &&
 	           input != 'H' && input != 'i' && input != 'I' && input != 'j' && input != 'J' &&
-			   input != 'k' && input != 'K' && input != 'l' && input != 'L' && input != 'm' && 
-			   input != 'M' && input != 'q' && input != 'Q') {
+			   input != 'k' && input != 'K' && input != 'q' && input != 'Q') {
 	        cout << "Error: Unknown input. Please Select a valid option: ";
 	        cin >> input;
 	        cout << endl;
@@ -260,55 +259,124 @@ public:
 		
 		//View finished tasks
 	    if (input == 'f' || input == 'F'){
-	    	set(new Select_Finished(base));
-            print();
+	    	int c = 0;
+	    	cout << "1 -- just view finished tasks  " << endl << "  2 -- view finished tasks by duedate order" << endl;
+	    	cin >> c;
+	    	cout << endl;
+	    	while(c != 1 && c != 2){
+	        cout << "Error: Unknown input. Please Select a valid option: ";
+	        cin >> c;
+	        cout << endl;	    	    
+			}
+	    	if(c == 1){
+	    	    set(new Select_Finished(new Select_GetList(base)));	
+			}
+			else if(c == 2){
+				set(new Select_Finished(new Select_ByDueDate(new Select_GetList(base))));
+			}
+			print();
 		}
 		
 		//View unfinished tasks
 	    if (input == 'g' || input == 'G'){
-	    	set(new Select_Unfinished(base));
-            print();	    	
+	    	int c = 0;
+	    	cout << "1 -- just view unfinished tasks  " << endl << "  2 -- view unfinished tasks by duedate order" << endl;
+	    	cin >> c;
+	    	cout << endl;
+	    	while(c != 1 && c != 2){
+	        cout << "Error: Unknown input. Please Select a valid option: ";
+	        cin >> c;
+	        cout << endl;	    	    
+			}
+	    	if(c == 1){
+	    	    set(new Select_Unfinished(new Select_GetList(base)));	
+			}
+			else if(c == 2){
+				set(new Select_Unfinished(new Select_ByDueDate(new Select_GetList(base))));
+			}
+			print();	    	
 		}
 		
 	//	//Display by priority
 	    if (input == 'h' || input == 'H'){
-            set(new Select_ByPriority(base));
-            print();
+	    	int c = 0;
+	    	cout << "1 -- just view tasks by priority  " << endl << "  2 -- view tasks by priority and duedate" << endl;
+	    	cin >> c;
+	    	cout << endl;
+	    	while(c != 1 && c != 2){
+	        cout << "Error: Unknown input. Please Select a valid option: ";
+	        cin >> c;
+	        cout << endl;	    	    
+			}
+	    	if(c == 1){
+	    	    set(new Select_ByPriority(new Select_GetList(base)));	
+			}
+			else if(c == 2){
+				set(new Select_ByPriority(new Select_ByDueDate(new Select_GetList(base))));
+			}
+			print();
 		}
 		
 		//Display by duedate
 	    if (input == 'i' || input == 'I'){
-	    	set(new Select_ByDueDate(base));
-            print();	    	
+	    	int c = 0;
+	    	cout << "1 -- just view tasks by duedate  " << endl << "  2 -- view tasks by priority and duedate" << endl;
+	    	cin >> c;
+	    	cout << endl;
+	    	while(c != 1 && c != 2){
+	        cout << "Error: Unknown input. Please Select a valid option: ";
+	        cin >> c;
+	        cout << endl;	    	    
+			}
+	    	if(c == 1){
+	    	    set(new Select_ByDueDate(new Select_GetList(base)));	
+			}
+			else if(c == 2){
+				set(new Select_ByDueDate(new Select_ByPriority(new Select_GetList(base))));
+			}
+			print();  	
 		}
 		
 		//Display by classification
 	    if (input == 'j' || input == 'J'){
+	    	int c = 0;
+	    	cout << "1 -- just view tasks by classification  " << endl << "  2 -- view tasks by classification and duedate" << endl;
+	    	cin >> c;
+	    	cout << endl;
+	    	while(c != 1 && c != 2){
+	        cout << "Error: Unknown input. Please Select a valid option: ";
+	        cin >> c;
+	        cout << endl;	    	    
+			}
 	    	cout << "Which type of tasks and sublist do you want to see (work, study, or personal)" << endl;
 	    	string type;
-	    	cin >> type;
-			set(new Select_ByClassification(base, type));
-            print();	    	
+	    	cin >> type;			
+	    	if(c == 1){
+	    	    set(new Select_ByClassification(new Select_GetList(base), type));	
+			}
+			else if(c == 2){
+				set(new Select_ByClassification(new Select_ByDueDate(new Select_GetList(base)), type));
+			}
+			print();  	
 		}
 		
 		//Delete all Sublists and tasks
 	    if (input == 'k' || input == 'K'){
 	    	deleteAllElementFromSpreadsheet();
 	    	deleteAllElementFromBase();
-	    	
 		}										
 	      
 	    //Display by duedate with priority
-	    if (input == 'l' || input == 'L'){
-	    	set(new Select_ByDuedateAndPriority(new Select_ByPriority(base)));
-			print();
-		}	    
-	    
-	    //Display unfinished task ordered by duedate and priority
-	    if (input == 'm' || input == 'M'){
-	    	set(new Select_UnfinishedAndOrdered(new Select_ByDuedateAndPriority(new Select_ByPriority(base))));
-	    	print();
-        }
+//	    if (input == 'l' || input == 'L'){
+//	    	set(new Select_ByDuedateAndPriority(new Select_ByPriority(base)));
+//			print();
+//		}	    
+//	    
+//	    //Display unfinished task ordered by duedate and priority
+//	    if (input == 'm' || input == 'M'){
+//	    	set(new Select_UnfinishedAndOrdered(new Select_ByDuedateAndPriority(new Select_ByPriority(base))));
+//	    	print();
+//        }
 	//	
 	    if (input == 'q' || input == 'Q'){
             cout << "See you next time!" << endl;
