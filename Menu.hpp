@@ -123,6 +123,8 @@ public:
     cout << "i - Display by duedate" << endl;
     cout << "j - Display by classification" << endl;
     cout << "k - Delete all Sublists and tasks" << endl;
+    cout << "l - Display by duedate with priority" << endl; 
+    cout << "m - Display unfinished task ordered by duedate and priority" << endl;    
     cout << "q - Exit Task Scheduler" << endl;
     MenuActions();
 	}
@@ -171,7 +173,8 @@ public:
 	           input != 'C' && input != 'd' && input != 'D' && input != 'e' && input != 'E' &&
 	           input != 'f' && input != 'F' && input != 'g' && input != 'G' && input != 'h' &&
 	           input != 'H' && input != 'i' && input != 'I' && input != 'j' && input != 'J' &&
-			   input != 'k' && input != 'K' && input != 'q' && input != 'Q') {
+			   input != 'k' && input != 'K' && input != 'l' && input != 'L' && input != 'm' && 
+			   input != 'M' && input != 'q' && input != 'Q') {
 	        cout << "Error: Unknown input. Please Select a valid option: ";
 	        cin >> input;
 	        cout << endl;
@@ -294,8 +297,18 @@ public:
 	    	deleteAllElementFromBase();
 	    	
 		}										
-	//    
-	//	}
+	      
+	    //Display by duedate with priority
+	    if (input == 'l' || input == 'L'){
+	    	set(new Select_ByDuedateAndPriority(new Select_ByPriority(base)));
+			print();
+		}	    
+	    
+	    //Display unfinished task ordered by duedate and priority
+	    if (input == 'm' || input == 'M'){
+	    	set(new Select_UnfinishedAndOrdered(new Select_ByDuedateAndPriority(new Select_ByPriority(base))));
+	    	print();
+        }
 	//	
 	    if (input == 'q' || input == 'Q'){
             cout << "See you next time!" << endl;
