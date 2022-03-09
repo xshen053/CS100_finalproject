@@ -13,6 +13,8 @@ int main(){
 	vector<Base*> listofTasks;
 	Menu *menu = new Menu(listofTasks);
 	menu->printMenu();
+
+        menu->clear1();
 	delete menu;
 //	
 //	Base* a = new Task("", "", "", "", "");

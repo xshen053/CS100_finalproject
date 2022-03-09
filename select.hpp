@@ -14,7 +14,7 @@ public:
     virtual ~Select() = default;
     virtual vector<Base*> getData() = 0;
     virtual void view() = 0;
-
+    virtual void clear() = 0;
 };
 
 
@@ -31,7 +31,11 @@ public:
 		return out;
 	}
 	virtual void view(){}
-
+        void clear(){
+	    for(int i = 0; i < out.size(); i++){
+	        delete out.at(i);
+	    }
+	}
 	
 };
 
@@ -49,6 +53,7 @@ public:
 	    	out.push_back(base.at(i));
 		}
 		sort(out.begin(), out.end(), cmp);	
+	delete data;
 	}
 	
 	static bool cmp(Base* a1, Base* a2){
@@ -86,6 +91,12 @@ public:
 	vector<Base*> getData(){                                 //get vector that stores data already sorted
 		return out;
 	}	
+        void clear(){
+            for(int i = 0; i < out.size(); i++){
+                delete out.at(i);
+            }
+        }
+	
 	
 };
 
@@ -112,7 +123,14 @@ public:
     		if(base.at(i)->getPriority() == "low"){
                 out.push_back(base.at(i));
 			}    		
-		}	    
+		}
+        for(int i = 0; i < base.size(); i++){
+                if(base.at(i)->getPriority() != "low" && base.at(i)->getPriority() != "medium" && base.at(i)->getPriority() != "high"){
+                out.push_back(base.at(i));
+                       }
+                }
+	
+        delete data;	
 	}
     
     void view(){
@@ -126,6 +144,12 @@ public:
 	vector<Base*> getData(){                                 //get vector that stores data already sorted
 		return out;
 	}
+        void clear(){
+            for(int i = 0; i < out.size(); i++){
+                delete out.at(i);
+            }
+        }
+	
     
 };
 
@@ -141,7 +165,8 @@ public:
     		if(base.at(i)->getType() == type){
     	        out.push_back(base.at(i));
 			}
-		}         
+		}        
+       delete data;	
 	}
     
     void view(){
@@ -153,7 +178,13 @@ public:
 	}
 	vector<Base*> getData(){
 		return out;
-	}    
+	}
+        void clear(){
+            for(int i = 0; i < out.size(); i++){
+                delete out.at(i);
+            }
+        }
+    	
 };
 
 class Select_Finished: public Select{
@@ -168,7 +199,8 @@ public:
     		if(base.at(i)->isComplete() == true){   			
     	        out.push_back(base.at(i));    			
 			}
-		}		
+		}
+        delete data;	
 	}
 	void view(){
 		int flag = 1;
@@ -180,6 +212,12 @@ public:
 	vector<Base*> getData(){
 		return out;
 	}	    
+        void clear(){
+            for(int i = 0; i < out.size(); i++){
+                delete out.at(i);
+            }
+        }
+	
 
     
 };
@@ -197,6 +235,7 @@ public:
     	        out.push_back(base.at(i));    			
 			}
 		}
+	delete data;
 	}
 	void view(){
 		int flag = 1;
@@ -208,6 +247,12 @@ public:
 	vector<Base*> getData(){ 
 		return out;
 	}	    
+        void clear(){
+            for(int i = 0; i < out.size(); i++){
+                delete out.at(i);
+            }
+        }
+	
 
     
 };
