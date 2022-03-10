@@ -48,7 +48,7 @@ We will also use the strategy pattern to enable program choose different classes
 ![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/raw/master/UML/finaldiagram.png)
 
 # Example picture and description
-![avatar]https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/blob/master/picture/PutExamplein.png
+![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/blob/master/picture/PutExamplein.png)
 
 
 
