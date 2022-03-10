@@ -84,6 +84,14 @@ And this is our edit menu, and we are going to change finish states for sublist.
  and display this, we can see Sublist CS100 is the only "finished" sublist. But you didn't finish all the task inside Sublist, the project will show other that you are lying, you doesn't finish all CS100's task. So the task inside the CS100 Sublist will still be "unfinished"
  
  
+ Then after edit another "finished". We check list all unfinished by duedate.
+ 
+![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/blob/master/picture/unfinished%20by%20duedate.png)
+
+That's all the function, action you can have with our project. And there is a delete. which can delete all the task/sublist. everything will dispear like " rm -fr"
+
+
+
 
 
 
