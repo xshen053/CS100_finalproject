@@ -61,8 +61,14 @@ public:
 	
 	void setName(){
 		cout << "Type in new task name followed by ENTER:" << endl;
-		string taskName;
-		getline(cin.ignore(), taskName);
+		string taskName = "";
+		cin.ignore();
+		while(taskName == ""){
+			getline(cin,taskName);
+			if(taskName == ""){
+				cout << "ERROR: NO NAME DETECTED. PLEASE ENTER A NAME FOR TASK" << endl;
+			}
+		}
 		title = taskName;
 	}
 	
@@ -74,6 +80,10 @@ public:
 		cout << "Type in the new task priority (high, medium, or low) followed by ENTER" << endl;
 		string taskPriority;
 		cin >> taskPriority;
+		while(taskPriority != "high" && taskPriority != "medium" && taskPriority != "low"){
+			cout << "WARNING: INVALID PRIORITY. PLEASE ENTER TASK PRIORITY:" << endl;
+			cin >> taskPriority;
+		}
 	    priority = taskPriority;
 	}
 	
@@ -94,9 +104,28 @@ public:
 	
 	void setDuedate(){
 		cout << "Type in the new task duedate (dd/mm/yyyy) followed by ENTER:" << endl;
-		string taskDueDate;
-		cin >> taskDueDate;
-		dueDate = taskDueDate;
+		string d;
+		string m;
+		string y;
+		cout << "Type in a day (two digit number): ";
+		cin >> d;
+		while((d.size() > 2 && d.at(0) >= '4' && d.at(0)>'9')||d.size() < 2){
+			cout << "Please enter a valid two digit day: ";
+			cin >> d;
+		}
+		cout << "Type in a month (two digit number): ";
+		cin >> m;
+		while((m.size() > 2 && m.at(0)<= '1' && m.at(1)<='9')||m.size()<2){
+			cout << "Please enter a valid two digit Month: ";
+			cin >> m;
+		}
+		cout << "Type in a year (4 digit number): ";
+		cin >> y;
+		while((y.size() > 4 && y.at(0)> '9' && y.at(1)>'9'&& y.at(2)<='9'&& y.at(3)<='9')||y.size()<4){
+			cout << "Please enter a valid two digit Year: ";
+			cin >> m;
+		}
+		dueDate = d+"//"+m+"//" + y;
 	}
 	
 	string getDuedate(){
@@ -107,6 +136,10 @@ public:
 		cout << "Type in the new task classification (personal, study, or work) followed by ENTER:" << endl;
 		string taskType;
 		cin >> taskType;
+		while(taskType != "personal" && taskType != "study" && taskType != "work"){
+			cout << "WARNING: INVALID CLASSIFICATION. PLEASE TYPE VALID CLASSIFICATION" << endl;
+			cin >> taskType;
+		}
 		classification = taskType;
 	}
 	
