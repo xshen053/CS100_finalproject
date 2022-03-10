@@ -159,8 +159,9 @@ public:
 	
 
 	void printMenu(){
+	cout << endl;
     cout << "=====================================================" << endl;
-    cout << " \t\tMENU \t \n ";
+    cout << " \t\tMENU \t \n";
     cout << "=====================================================" << endl;
     cout << "a - Create a SubList" << endl;
     cout << "b - Create a task" << endl;
@@ -175,7 +176,7 @@ public:
     cout << "k - Delete all Sublists and tasks" << endl;
 //    cout << "l - Display by duedate with priority" << endl; 
 //    cout << "m - Display unfinished task ordered by duedate and priority" << endl;    
-    cout << "q - Exit Task Scheduler" << endl;
+    cout << "q - Exit Task Scheduler" << endl << endl;
     MenuActions();
 	}
 	
@@ -263,7 +264,7 @@ public:
 	        if(currentElement == -1) {
 	            cout << "no such SubList or Task!!" << endl;
 	            cout << "\n returning to Main Menu......" << endl << endl;
-	            printMenu();
+//	            printMenu();
 			}
 			
 			//task or sublist found, enter task/sublist menu
@@ -287,7 +288,7 @@ public:
 	        if(currentElement == -1) {
 	            cout << "no such SubList or Task!!" << endl;
 	            cout << "\n returning to Main Menu......" << endl << endl;
-	            printMenu();
+//	            printMenu();
 			}
 			
 			//task or sublist found, enter task/sublist menu
@@ -317,7 +318,7 @@ public:
 		//View finished tasks
 	    if (input == 'f' || input == 'F'){
 	    	string c = "0";
-	    	cout << "1 -- just view finished tasks  " << endl << "  2 -- view finished tasks by duedate order" << endl;
+	    	cout << "1 -- view only finished tasks  " << endl << "2 -- view finished tasks by duedate order" << endl;
 	    	cin >> c;
 	    	cout << endl;
 	    	while(c != "1" && c != "2"){
@@ -338,7 +339,7 @@ public:
 		//View unfinished tasks
 	    if (input == 'g' || input == 'G'){
 	    	string c = "0";
-	    	cout << "1 -- just view unfinished tasks  " << endl << "  2 -- view unfinished tasks by duedate order" << endl;
+	    	cout << "1 -- view only unfinished tasks  " << endl << "2 -- view unfinished tasks by duedate order" << endl;
 	    	cin >> c;
 	    	cout << endl;
 	    	while(c != "1" && c != "2"){
@@ -359,7 +360,7 @@ public:
 	//	//Display by priority
 	    if (input == 'h' || input == 'H'){
 	    	string c = "0";
-	    	cout << "1 -- just view tasks by priority  " << endl << "  2 -- view tasks by priority and duedate" << endl;
+	    	cout << "1 -- view tasks only by priority  " << endl << "2 -- view tasks by priority and duedate" << endl;
 	    	cin >> c;
 	    	cout << endl;
 	    	while(c != "1" && c != "2"){
@@ -380,7 +381,8 @@ public:
 		//Display by duedate
 	    if (input == 'i' || input == 'I'){
 	    	string c = "0";
-	    	cout << "1 -- just view tasks by duedate  " << endl << "  2 -- view tasks by priority and duedate" << endl;
+	    	cout << "Select an option:" << endl;
+	    	cout << "1 -- View tasks by only by due date " << endl << "2 -- View tasks by priority and due date" << endl;
 	    	cin >> c;
 	    	cout << endl;
 	    	while(c != "1" && c != "2"){
@@ -401,7 +403,7 @@ public:
 		//Display by classification
 	    if (input == 'j' || input == 'J'){
 	    	string c = "0";
-	    	cout << "1 -- just view tasks by classification  " << endl << "  2 -- view tasks by classification and duedate" << endl;
+	    	cout << "1 -- view tasks only by classification  " << endl << "  2 -- view tasks by classification and duedate" << endl;
 	    	cin >> c;
 	    	cout << endl;
 	    	while(c != "1" && c != "2"){
@@ -432,10 +434,9 @@ public:
 		}
     	    
 	    if (input == 'q' || input == 'Q'){
-            cout << "See you next time!" << endl;
-//            exit(0);
+            cout << "LOGGING OFF" << endl;
 	    }
-	    cout << "\n returning to Main Menu......" << endl << endl;
+//	    cout << "\n returning to Main Menu......" << endl << endl;
 //	    printMenu();
 	
 }
@@ -528,7 +529,7 @@ public:
 	    //q - Return to Main Menu
 	    if (input == 'q' || input == 'Q'){
 	    cout << "\n returning to Main Menu......" << endl << endl;
-	    printMenu();
+//	    printMenu();
 		}
 
         
@@ -654,7 +655,7 @@ public:
 	    //q - Return to Main Menu
 	    if (input == 'q' || input == 'Q'){
 	    cout << "\n returning to Main Menu......" << endl << endl;
-		printMenu();
+//		printMenu();
 		}
 	        
     }
