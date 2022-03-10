@@ -157,7 +157,7 @@ public:
 			cout << "Please enter a valid 4 digit Year: ";
 			cin >> m;
 		}
-		dueDate = d+"//"+m+"//" + y;
+		dueDate = d+ "/" +m+ "/" + y;
 	}
 	
 	string getDuedate(){
