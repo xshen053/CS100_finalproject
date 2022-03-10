@@ -48,6 +48,10 @@ We will also use the strategy pattern to enable program choose different classes
 ![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/raw/master/UML/finaldiagram.png)
 
 # Example picture and description
+##This is our menu
+This will lead the user to interact with our project.
+![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/blob/master/picture/menu.png)
+And then put in some example sublist, task, duedate.etc.
 ![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/blob/master/picture/PutExamplein.png)
 
 
