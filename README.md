@@ -24,8 +24,6 @@
 
 
 
-## Class Diagram
-![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/raw/master/UML/originalUML.png)
 
 ## Diagram description
 
