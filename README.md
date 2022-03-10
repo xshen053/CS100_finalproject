@@ -48,14 +48,43 @@ We will also use the strategy pattern to enable program choose different classes
 ![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/raw/master/UML/finaldiagram.png)
 
 # Example picture and description
-## This is our menu
-This will lead the user to interact with our project.
+## This is our project!
+This menu will lead the user to interact with our project.
 
 ![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/blob/master/picture/menu.png)
 
 And then put in some example sublist, task, duedate.etc.
 
 ![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/blob/master/picture/PutExamplein.png)
+
+Now we tested creat sublist and task, and when you add task or sublist in a sublist, you will need to use the edit function.
+
+But we will check view first, first it's view task/sublist by priority. High > meduim > low
+
+![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/blob/master/picture/h1.png)
+
+Then we view task by duedates.
+
+![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/blob/master/picture/i1.png)
+
+Last we want to see personal task, so use j1 and only view personal task/sublist
+
+![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/blob/master/picture/j1personal.png)
+
+We can see study and work tasks/sublist is gone.
+
+Now we check edit. OH NO, User typed the wrong task's name. It will return menu.
+
+![avatar]( https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/blob/master/picture/wrong%20name%20about%20task.png)
+
+And this is our edit menu, and we are going to change finish states for sublist.
+
+![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/blob/master/picture/change%20finished%20and%20display.png)
+ 
+ and display this, we can see Sublist CS100 is the only "finished" sublist. But you didn't finish all the task inside Sublist, the project will show other that you are lying, you doesn't finish all CS100's task. So the task inside the CS100 Sublist will still be "unfinished"
+ 
+ 
+
 
 
 
