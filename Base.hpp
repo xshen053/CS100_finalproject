@@ -35,6 +35,7 @@ public:
 	virtual Base* getParent() = 0;
 	virtual bool isComplete() = 0;
      virtual void releaseMemory() = 0;
+     virtual vector<Base*> getSubLists() = 0;
 protected:
     string title;
     string priority;

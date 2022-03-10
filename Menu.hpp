@@ -108,6 +108,8 @@ public:
 		}
 	}
 	
+        
+
 	void deleteAllElementFromSpreadsheet(){
 		if(spreadsheet.size() == 0){
 		    cout << "Don't have any task or sublist!!" << endl;
@@ -618,15 +620,21 @@ public:
 	    	Name = spreadsheet.at(currentElement)->getName();
 	    	//its hierarchy is 0 
 		    if(spreadsheet.at(currentElement)->getHierarchy() == 0) {
-                
+                        int s = spreadsheet.at(currentElement)->getSubLists().size();
+                        cout << "s:" << s << endl;
 		    	//make sure this list have already erase all of its sublists
 		    	spreadsheet.at(currentElement)->deleteAllSublist();
 			//we need to delete it in base before we release its memory
                         deleteOneElementFromBase();
 			//release its memory
 			delete spreadsheet.at(currentElement);
+			cout << "size:" << spreadsheet.size() << endl;
 		    	//delete this sublist both in spreadsheet and base
-		    	deleteOneElementFromSpreadsheet();
+//		    	deleteOneElementFromSpreadsheet();
+//                        deleteSublistElementFromSpreadsheet();		    	
+//
+                        spreadsheet.erase(spreadsheet.begin() + currentElement, spreadsheet.begin() + currentElement + s + 1);  
+			cout << "size:" << spreadsheet.size() << endl;
 			}
 			else{
 			    // now currentElement sublist is the one we need to delete
@@ -634,12 +642,20 @@ public:
 				spreadsheet.at(currentElement)->getParent();
 				//we need to know the name of sublist we need to delete
 				string name = spreadsheet.at(currentElement)->getName();
+				//get size of sublist
+				int s = spreadsheet.at(currentElement)->getSubLists().size();
 				//just call function to delete it
 				spreadsheet.at(currentElement)->getParent()->deleteOneSpecificSublist(name);
+				//int s = spreadsheet.at(currentElement)->getSubLists().size();
+//                                cout << "s" << s << endl;
+//                                cout << "size:" << spreadsheet.size() << endl;				
+				spreadsheet.erase(spreadsheet.begin() + currentElement, spreadsheet.begin() + currentElement + s + 1);
+//				cout << "size:" << spreadsheet.size() << endl;
 				//release its memory
 				//delete spreadsheet.at(currentElement);
 				//we still need to delete it from vector spreadsheet, we just deleted it from vector base
-				deleteOneElementFromSpreadsheet();
+				//deleteOneElementFromSpreadsheet();
+//				deleteSublistElementFromSpreadsheet();
 			}
 		}
 		
