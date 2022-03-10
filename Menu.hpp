@@ -167,11 +167,11 @@ public:
     cout << "c - Edit a SubList" << endl;
     cout << "d - Edit a task" << endl;
     cout << "e - View all SubLists and tasks" << endl;
-    cout << "f - View finished tasks (multiple strategy)" << endl;
-    cout << "g - View unfinished tasks (multiple strategy)" << endl;
-    cout << "h - Display by priority (multiple strategy)" << endl;
-    cout << "i - Display by duedate (multiple strategy)" << endl;
-    cout << "j - Display by classification (multiple strategy)" << endl;
+    cout << "f - View finished tasks" << endl;
+    cout << "g - View unfinished tasks" << endl;
+    cout << "h - Display by priority" << endl;
+    cout << "i - Display by duedate" << endl;
+    cout << "j - Display by classification" << endl;
     cout << "k - Delete all Sublists and tasks" << endl;
 //    cout << "l - Display by duedate with priority" << endl; 
 //    cout << "m - Display unfinished task ordered by duedate and priority" << endl;    
