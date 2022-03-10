@@ -34,6 +34,7 @@ public:
 	virtual void deleteOneSpecificSublist(string name) = 0;
 	virtual Base* getParent() = 0;
 	virtual bool isComplete() = 0;
+     virtual void releaseMemory() = 0;
 protected:
     string title;
     string priority;

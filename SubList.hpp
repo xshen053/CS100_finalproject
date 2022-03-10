@@ -73,12 +73,24 @@ public:
 	} 
 	
 	void displaySubLists(){
-        for(int i = 0; i < listOfTasks.size(); i++) {   
-            listOfTasks.at(i)->display();
+            for(int i = 0; i < listOfTasks.size(); i++){   
+                listOfTasks.at(i)->display();
 
         }
 	}
-	
+	//releasememory space of whole sublist of current sublist
+        void releaseMemory(){
+	    for(int i = 0; i < listOfTasks.size(); i++){
+	        if(listOfTasks.at(i)->checkType() == "Single task"){
+		    delete listOfTasks.at(i);
+		}
+	        else if(listOfTasks.at(i)->checkType() == "SubList task"){
+		    listOfTasks.at(i)->releaseMemory();
+		    delete listOfTasks.at(i);
+		}	
+	    }    
+	}
+
 	void setName(){
 		cout << "Type in new sublist name followed by ENTER:" << endl;
 		string taskName;
@@ -179,6 +191,7 @@ public:
 	//delete all its Sublist
 	void deleteAllSublist(){
 		if(listOfTasks.size() != 0){
+	            releaseMemory();
 		    for(vector<Base*>::iterator itr = listOfTasks.begin(); itr != listOfTasks.end();){
 			    itr = listOfTasks.erase(itr);
 		    }	
@@ -198,7 +211,15 @@ public:
 				break;
 			}
 		}
-        listOfTasks.erase(listOfTasks.begin() + flag);
+		if(listOfTasks.at(flag)->checkType() == "Single task"){
+		    delete listOfTasks.at(flag);
+		}
+		else{
+		//release its sublist's memory
+		    listOfTasks.at(flag)->releaseMemory();
+		    delete listOfTasks.at(flag);
+		}
+                listOfTasks.erase(listOfTasks.begin() + flag);
         //debug
 //        cout << "size: " << listOfTasks.size() << endl;
 	}
