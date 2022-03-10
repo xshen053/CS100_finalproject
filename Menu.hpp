@@ -297,19 +297,19 @@ public:
 		
 		//View finished tasks
 	    if (input == 'f' || input == 'F'){
-	    	int c = 0;
+	    	string c = "0";
 	    	cout << "1 -- just view finished tasks  " << endl << "  2 -- view finished tasks by duedate order" << endl;
 	    	cin >> c;
 	    	cout << endl;
-	    	while(c != 1 && c != 2){
+	    	while(c != "1" && c != "2"){
 	        cout << "Error: Unknown input. Please Select a valid option: ";
 	        cin >> c;
 	        cout << endl;	    	    
 			}
-	    	if(c == 1){
+	    	if(c == "1"){
 	    	    set(new Select_Finished(new Select_GetList(base)));	
 			}
-			else if(c == 2){
+			else if(c == "2"){
 				set(new Select_Finished(new Select_ByDueDate(new Select_GetList(base))));
 			}
 			print();
@@ -318,19 +318,19 @@ public:
 		
 		//View unfinished tasks
 	    if (input == 'g' || input == 'G'){
-	    	int c = 0;
+	    	string c = "0";
 	    	cout << "1 -- just view unfinished tasks  " << endl << "  2 -- view unfinished tasks by duedate order" << endl;
 	    	cin >> c;
 	    	cout << endl;
-	    	while(c != 1 && c != 2){
+	    	while(c != "1" && c != "2"){
 	        cout << "Error: Unknown input. Please Select a valid option: ";
 	        cin >> c;
 	        cout << endl;	    	    
 			}
-	    	if(c == 1){
+	    	if(c == "1"){
 	    	    set(new Select_Unfinished(new Select_GetList(base)));	
 			}
-			else if(c == 2){
+			else if(c == "2"){
 				set(new Select_Unfinished(new Select_ByDueDate(new Select_GetList(base))));
 			}
 			print();
@@ -339,19 +339,19 @@ public:
 		
 	//	//Display by priority
 	    if (input == 'h' || input == 'H'){
-	    	int c = 0;
+	    	string c = "0";
 	    	cout << "1 -- just view tasks by priority  " << endl << "  2 -- view tasks by priority and duedate" << endl;
 	    	cin >> c;
 	    	cout << endl;
-	    	while(c != 1 && c != 2){
+	    	while(c != "1" && c != "2"){
 	        cout << "Error: Unknown input. Please Select a valid option: ";
 	        cin >> c;
 	        cout << endl;	    	    
 			}
-	    	if(c == 1){
+	    	if(c == "1"){
 	    	    set(new Select_ByPriority(new Select_GetList(base)));	
 			}
-			else if(c == 2){
+			else if(c == "2"){
 				set(new Select_ByPriority(new Select_ByDueDate(new Select_GetList(base))));
 			}
 			print();
@@ -360,19 +360,19 @@ public:
 		
 		//Display by duedate
 	    if (input == 'i' || input == 'I'){
-	    	int c = 0;
+	    	string c = "0";
 	    	cout << "1 -- just view tasks by duedate  " << endl << "  2 -- view tasks by priority and duedate" << endl;
 	    	cin >> c;
 	    	cout << endl;
-	    	while(c != 1 && c != 2){
+	    	while(c != "1" && c != "2"){
 	        cout << "Error: Unknown input. Please Select a valid option: ";
 	        cin >> c;
 	        cout << endl;	    	    
 			}
-	    	if(c == 1){
+	    	if(c == "1"){
 	    	    set(new Select_ByDueDate(new Select_GetList(base)));	
 			}
-			else if(c == 2){
+			else if(c == "2"){
 				set(new Select_ByDueDate(new Select_ByPriority(new Select_GetList(base))));
 			}
 			print();  	
@@ -381,11 +381,11 @@ public:
 		
 		//Display by classification
 	    if (input == 'j' || input == 'J'){
-	    	int c = 0;
+	    	string c = "0";
 	    	cout << "1 -- just view tasks by classification  " << endl << "  2 -- view tasks by classification and duedate" << endl;
 	    	cin >> c;
 	    	cout << endl;
-	    	while(c != 1 && c != 2){
+	    	while(c != "1" && c != "2"){
 	        cout << "Error: Unknown input. Please Select a valid option: ";
 	        cin >> c;
 	        cout << endl;	    	    
@@ -393,10 +393,10 @@ public:
 	    	cout << "Which type of tasks and sublist do you want to see (work, study, or personal)" << endl;
 	    	string type;
 	    	cin >> type;			
-	    	if(c == 1){
+	    	if(c == "1"){
 	    	    set(new Select_ByClassification(new Select_GetList(base), type));	
 			}
-			else if(c == 2){
+			else if(c == "2"){
 				set(new Select_ByClassification(new Select_ByDueDate(new Select_GetList(base)), type));
 			}
 			print();
@@ -426,7 +426,7 @@ public:
             cout << "See you next time!" << endl;
 //            exit(0);
 	    }
-//	    cout << "\n returning to Main Menu......" << endl << endl;
+	    cout << "\n returning to Main Menu......" << endl << endl;
 //	    printMenu();
 	
 }
