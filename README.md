@@ -1,4 +1,4 @@
-# Task Scheduler
+# Task Scheduler 
  
   Authors: [Xiaxi Shen](https://github.com/xshen053), [Han Yu](https://github.com/BFLion), [Vibhu Sangar Vinoth Kannan](https://github.com/VibhuSVK), [Justin Fernandez](https://github.com/j9950)
 
