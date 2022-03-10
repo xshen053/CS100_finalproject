@@ -1,5 +1,5 @@
-#ifndef SUBLISTHPP
-#define SUBLISTHPP
+#ifndef __TASK_TEST2_HPP__
+#define __TASK_TEST2_HPP__
 
 #include "gtest/gtest.h"
 
@@ -10,15 +10,15 @@
 
 
 TEST(TaskTest0, Display){
-  vector<Base>thesublist;
+  vector<Base*>thesublist;
 
-  Base task1 = new SubList("by diary", "Low", "by some diary", "03/02/2022", "group", thesublist);
+  Base* task1 = new SubList("by diary", "Low", "by some diary", "03/02/2022", "group", thesublist);
 
   thesublist.push_back(task1);
   EXPECT_EQ(task1->getName(), "by diary");
   EXPECT_EQ(task1->getPriority(), "Low");
   EXPECT_EQ(task1->getDescription(), "by some diary");
-  EXPECT_EQ(task1->getDuedate(), "03/10/2022");
+  EXPECT_EQ(task1->getDuedate(), "03/02/2022");
   EXPECT_EQ(task1->getType(), "group");
 }
 
@@ -47,3 +47,4 @@ TEST(TaskTest5, getTyperamdom){
   EXPECT_EQ(task1->getType(), "endmysuffering");
 }
 
+#endif
