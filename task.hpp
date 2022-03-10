@@ -144,12 +144,13 @@ public:
 	bool isComplete(){
 		return complete;
 	}
-	//virtual vector<Base*> getSubLists(){}
+        virtual vector<Base*> getSubLists(){vector<Base*> a; return a;};
 	virtual void refreshSubLists(vector<Base*> ListofTasks){}
 	virtual void push(Base* t){}
 	virtual void deleteAllSublist(){}
 	virtual void deleteOneSpecificSublist(string name){}
 	virtual void releaseMemory(){}
+
 };
 
 #endif 
