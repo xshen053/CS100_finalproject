@@ -63,7 +63,7 @@ But we will check view first, first it's view task/sublist by priority. High > m
 
 ![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/blob/master/picture/h1.png)
 
-Then we view task by duedates.
+Then we view task by duedates. It for main sublist too, and the due 
 
 ![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/blob/master/picture/i1.png)
 
