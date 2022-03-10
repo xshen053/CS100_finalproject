@@ -52,11 +52,30 @@ public:
 	    //spreadsheet.clear();
 	    
 	}
+        //release all memory 
+        void release(){
+            for(int i = 0; i < spreadsheet.size(); i++){
+                delete spreadsheet.at(i);
+	   
+	}
+	}
+        //release memory of one task
+	//only work when hierarchy is 0
+	void releaseOneTask(){
+             for(int i = 0; i < spreadsheet.size(); i++){
+                 if (spreadsheet.at(i)->getName() == Name){
+	             delete spreadsheet.at(i);
+                     break;
+                 }
+             }
+	}
+
+	//release memory of one sublist and its childs
+//	void releaseOneSubList()
+	    
 
 	void clear1(){
-	    for(int i = 0; i < spreadsheet.size(); i++){
-	        delete spreadsheet.at(i);
-	    }
+	    release();
 //	    displayStrategy->clear();
 	    delete displayStrategy;
 	}
@@ -405,23 +424,13 @@ public:
 		
 		//Delete all Sublists and tasks
 	    if (input == 'k' || input == 'K'){
+		//release memory
+                release();
 	    	deleteAllElementFromSpreadsheet();
 	    	deleteAllElementFromBase();
                 printMenu();		
-		}										
-	      
-	    //Display by duedate with priority
-//	    if (input == 'l' || input == 'L'){
-//	    	set(new Select_ByDuedateAndPriority(new Select_ByPriority(base)));
-//			print();
-//		}	    
-//	    
-//	    //Display unfinished task ordered by duedate and priority
-//	    if (input == 'm' || input == 'M'){
-//	    	set(new Select_UnfinishedAndOrdered(new Select_ByDuedateAndPriority(new Select_ByPriority(base))));
-//	    	print();
-//        }
-	//	
+		}
+    	    
 	    if (input == 'q' || input == 'Q'){
             cout << "See you next time!" << endl;
 //            exit(0);
@@ -484,17 +493,21 @@ public:
 	    //f - Delete this task
 	    if (input == 'f' || input == 'F'){
 	    	//we need to know the name of sublist we need to delete
-            Name = spreadsheet.at(currentElement)->getName();
+                Name = spreadsheet.at(currentElement)->getName();
 	    	//its hierarchy is 0 
 		    if(spreadsheet.at(currentElement)->getHierarchy() == 0) {
+                        deleteOneElementFromBase();    
+			//release its memory
+			releaseOneTask();
 		    	//delete this task both in spreadsheet and base
 		    	deleteOneElementFromSpreadsheet();
-		    	deleteOneElementFromBase();
 			}
 			else{
 			    // now currentElement task is the one we need to delete
 				//just call function to delete it
 				spreadsheet.at(currentElement)->getParent()->deleteOneSpecificSublist(Name);
+				//release its memory
+				//releaseOneTask();
 				//we still need to delete it from vector spreadsheet, we just deleted it from vector base
 				deleteOneElementFromSpreadsheet();
 			}            
@@ -503,14 +516,14 @@ public:
 		//g - Mark this task as finished
 		if  (input == 'g' || input == 'G'){
 //			base.at(base.size() - 1)->setFinished();
-            spreadsheet.at(currentElement)->setFinished();
-	    }
+                    spreadsheet.at(currentElement)->setFinished();
+	        }
 		
 		//h - Mark this task as unfinished
 		if  (input == 'h' || input == 'H'){
 //			base.at(base.size() - 1)->setUnfinished();
-            spreadsheet.at(currentElement)->setUnfinished();
-	    }
+                    spreadsheet.at(currentElement)->setUnfinished();
+         	}
 	    
 	    //q - Return to Main Menu
 	    if (input == 'q' || input == 'Q'){
@@ -608,9 +621,12 @@ public:
                 
 		    	//make sure this list have already erase all of its sublists
 		    	spreadsheet.at(currentElement)->deleteAllSublist();
+			//we need to delete it in base before we release its memory
+                        deleteOneElementFromBase();
+			//release its memory
+			delete spreadsheet.at(currentElement);
 		    	//delete this sublist both in spreadsheet and base
 		    	deleteOneElementFromSpreadsheet();
-		    	deleteOneElementFromBase();
 			}
 			else{
 			    // now currentElement sublist is the one we need to delete
@@ -620,6 +636,8 @@ public:
 				string name = spreadsheet.at(currentElement)->getName();
 				//just call function to delete it
 				spreadsheet.at(currentElement)->getParent()->deleteOneSpecificSublist(name);
+				//release its memory
+				//delete spreadsheet.at(currentElement);
 				//we still need to delete it from vector spreadsheet, we just deleted it from vector base
 				deleteOneElementFromSpreadsheet();
 			}

@@ -149,6 +149,7 @@ public:
 	virtual void push(Base* t){}
 	virtual void deleteAllSublist(){}
 	virtual void deleteOneSpecificSublist(string name){}
+	virtual void releaseMemory(){}
 };
 
 #endif 
