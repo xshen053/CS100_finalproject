@@ -17,5 +17,29 @@ TEST(TaskTest, Display){
     EXPECT_EQ(task1->getType(), "personal");  
 	
 }
+TEST(TaskTest2, getName){
+    Base* task1 = new Task("by Han", "", "", "", "");
+    EXPECT_EQ(task1->getName(),"by Han");
+}
+TEST(TaskTest3, getPriorityOtherempty){
+    Base* task1 = new Task("", "High", "", "", "");
+    EXPECT_EQ(task1->getPriority(), "High");
+}
+
+
+TEST(TaskTest4, getDescriptionempty){
+    Base* task1 = new Task("", "", "", "", "");
+    EXPECT_EQ(task1->getDescription(), "");
+}
+
+TEST(TaskTest5, getDuedate){
+    Base* task1 = new Task("", "", "", "2022", "");
+    EXPECT_EQ(task1->getDuedate(), "2022");
+}
+TEST(TaskTest6, getTyperamdom){
+    Base* task1 = new Task("", "", "", "", "hahaha");
+    EXPECT_EQ(task1->getType(), "hahaha");
+}
+
 
 #endif
