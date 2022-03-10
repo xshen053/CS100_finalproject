@@ -59,7 +59,7 @@ And then put in some example sublist, task, duedate.etc.
 
 Now we tested creat sublist and task, and when you add task or sublist in a sublist, you will need to use the edit function.
 
-But we will check view first, first it's view task/sublist by priority. High > meduim > low
+But we will check view first, first it's view task/sublist by priority. High > meduim > low. And it only Compare main Sublist/task with each other.
 
 ![avatar](https://github.com/cs100/final-project-xshen053-hyu146-jfern025-vvino005/blob/master/picture/h1.png)
 
